@@ -58,7 +58,7 @@ vi  C:\RubyDevKit\_config.yml
 
 
 # jekyll-bootstrap error
- *[Jekyll serve throws errors when serving default jekyll-bootstrap config #288](https://github.com/plusjade/jekyll-bootstrap/issues/288)
+ * [Jekyll serve throws errors when serving default jekyll-bootstrap config #288](https://github.com/plusjade/jekyll-bootstrap/issues/288)
 
 ```
 gem install jekyll    #Default 3.0.0     2015.11.1
