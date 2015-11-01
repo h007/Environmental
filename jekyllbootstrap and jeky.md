@@ -66,5 +66,7 @@ gem uninstall jekyll  #Uninstall high version jekyll
 ```  
 * **from:**
 http://jekyll-windows.juthilo.com/
-http://jekyllrb.com/docs/installation/
+
+http://jekyllrb.com/docs/installation
+
 https://rubygems.org/gems/jekyll/versions
