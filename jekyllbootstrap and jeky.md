@@ -65,6 +65,7 @@ gem install jekyll    #Default 3.0.0     2015.11.1
 gem uninstall jekyll  #Uninstall high version jekyll
 ```  
 * **from:**
+
 http://jekyll-windows.juthilo.com/
 
 http://jekyllrb.com/docs/installation
