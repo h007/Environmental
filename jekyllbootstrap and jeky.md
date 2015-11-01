@@ -22,12 +22,17 @@
 
 * 淘宝 NPM 镜像
 
-https://npm.taobao.org/
+ https://npm.taobao.org/
 
 * pip源
 
-http://blog.iyestin.com/2014/03/15/python-pip-install/
-
+ http://blog.iyestin.com/2014/03/15/python-pip-install/
+```
+pypi.python.org	官方源
+pypi.douban.com	豆瓣源，福州
+pypi.hustunique.com	华中科技大学源，武汉
+pypi.tuna.tsinghua.edu.cn	清华源，北京
+```
 ```
 ruby-v
 python -V
@@ -41,13 +46,14 @@ ruby dk.rb install
 ## syntax-highlighting
 
 ```
-gem install rouge  
- vi  _config.yml
-highlighter: rouge
-pip install Pygments
-highlighter: pygments 
-
-gem install jekyll -v '2..5.3'
+ gem install rouge  
+ highlighter: pygments 
+ 
+vi  C:\RubyDevKit\_config.yml
+ highlighter: rouge
+ pip install Pygments
+ 
+ gem install jekyll -v '2..5.3'
 ```
 
 
