@@ -53,7 +53,7 @@ vi  C:\RubyDevKit\_config.yml
  highlighter: rouge
  pip install Pygments
  
- gem install jekyll -v '2..5.3'
+ gem install jekyll -v '2.4.0'
 ```
 
 
