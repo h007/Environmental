@@ -1,0 +1,161 @@
+
+无法启动 黄色图标 解决
+ 
+查看是否80端口被占用（被skype 或IIS）
+
+wamp ->appach->service->test port 80
+或
+netstat -ano|findstr 80
+
+如何改变Apache端口
+找到Apache安装目录下conf目录下的httpd.conf文件。打开它，找到“Listen”，紧接着Listen的数字就是端口号，默认状态下为“Listen 80”。在之前的PHP专题中提到过关于在安装配置Apache时会遇到端口与IIS HTTP端口冲突的问题，因为IIS HTTP端口默认也为80。那么我们就可以在这里改变Apache的端口，从而避免冲突，比如可以改成:Listen 8011。改好之后别忘重起Apache服务使得配置生效。
+
+如何改变Skype默认是使用80端口和443端口作为接入连接的备用端口
+WAMP （Windows Apache Mysql PHP）服务器也要默认使用80端口
+为方便使用wamp正常运行，调整Skype的80端口为其他：方法：
+工具－－选项－－高级－－连接，修改端口号 
+
+------------------------------------------------------
+
+http://blog.csdn.net/jayxujia123/article/details/5514156
+http://www.360doc.com/content/14/1214/23/20611841_432974620.shtml
+http://zfly9.blogspot.jp/2013/08/wampserverunablestart.html
+------------------------------------------------------
+1  127.0.0.1/phpMyadmin  主页
+权限->root localhost ->编辑权限->修改密码
+修改密码
+ 
+2
+F:\Program Files\wamp\apps\phpmyadmin3.4.10.1
+
+config.inc.php
+$cfg['Servers'][$i]['password'] = '';
+3
+F:\Program Files\wamp\apps\phpmyadmin3.4.10.1\libraries
+
+config.default.php
+$cfg['Servers'][$i]['password'] = '';
+ 
+ ----------------------------------------------------
+ http://www.360doc.com/content/13/1113/09/426480_328813961.shtml
+ http://www.360doc.com/content/15/0426/00/12109864_466020107.shtml
+ ----------------------------------------------------
+4.time设置php.ini
+[Date]
+; Defines the default timezone used by the date functions
+ http://php.net/date.timezone
+date.timezone = Asia/Shanghai
+5.虚拟主机配置
+
+ 1  编辑httpd.conf，查找Include conf/extra/httpd-vhosts.conf，把前面注释符号“#”删掉。
+ 2  编辑httpd-vhosts.conf，我把WAMPServer安装在D:/wamp，所以我这里的路径是D:\wamp\Apache2\conf\extra。  
+
+把里面的内容清空掉或者注释，换成下面的内容：
+NameVirtualHost *:80
+#原来默认的目录
+<VirtualHost *:80>
+    ServerName localhost
+    ServerAlias localhost
+    DocumentRoot "F:/Program Files/wamp/www"
+</VirtualHost>
+#这个是新增的努力目录
+<VirtualHost *:80>
+ServerName www.shop.com
+ServerAlias www.shop.com
+DocumentRoot "F:/PHPhomework/web/shop"
+<Directory "F:/PHPhomework/web/shop">
+    Options Indexes FollowSymLinks
+    AllowOverride all
+    Order Allow,Deny
+    Allow from all
+</Directory>
+</VirtualHost>
+
+3  修改C:/WINDOWS/system32/drivers/etc/host这个文件，用记事本打开，加上如下内容:
+   127.0.0.1  www.shop.com
+
+好了，然后重启apache，在浏览器里面输入www.cms.com，看看访问到的内容是不是workplace这个目录呢。
+--------------------------------------------------------------------------------------------------------------------------
+thinkphp  示例包 配置
+ThinkPHP示例（for ThinkPHP3.1+版本）
+[安装须知]
+要使用示例，首先需要安装ThinkPHP核心（https://github.com/liu21st/thinkphp）
+然后把示例放到Web目录下面，如果根目录下面有SQL文件则首先导入到数据库，然后修改示例下面的 Conf/config.php 文件中的数据库连接信息。
+在config.php 里一定注意 以下数值
+   'URL_MODEL'  =>  3, // 如果你的环境不支持PATHINFO 请设置为3
+--------------------------------------------------------------------------------------------------------------------------
+smarty 配置
+<?php
+/*定义服务器的绝对路径*/
+define("BASE_PATH",$_SERVER['DOCUMENT_ROOT']);
+echo BASE_PATH;
+/*定义Smarty的绝对路径*/
+define("SMARTY_PATH",'/smarty/');
+require BASE_PATH.SMARTY_PATH."Smarty.class.php";
+$smarty=new Smarty;
+//下面的(你的网站目录)用绝对路径，可以用相对路径（./templates）
+$smarty->template_dir=BASE_PATH.SMARTY_PATH.'templates/';
+$smarty->config_dir=BASE_PATH.SMARTY_PATH.'configs/';
+$smarty->cache_dir=BASE_PATH.SMARTY_PATH.'cache/';
+$smarty->compile_dir=BASE_PATH.SMARTY_PATH.'templates_c/';
+
+
+/*修改定界符*/
+$smarty->left_delimiter='<{';
+$smarty->right_delimiter='}>';
+?>
+
+或
+<?php
+/*  定义服务器的绝对路径  */
+define('BASE_PATH',$_SERVER['DOCUMENT_ROOT']);
+/*  定义Smarty目录的绝对路径  */
+define('SMARTY_PATH','\Smarty\\');
+/*  加载Smarty类库文件    */
+require BASE_PATH.SMARTY_PATH.'Smarty.class.php';
+/*  实例化一个Smarty对象  */
+$smarty = new Smarty;
+/*  定义各个目录的路径    */
+$smarty->template_dir = BASE_PATH.SMARTY_PATH.'templates/';
+$smarty->compile_dir = BASE_PATH.SMARTY_PATH.'templates_c/';
+$smarty->config_dir = BASE_PATH.SMARTY_PATH.'configs/';
+$smarty->cache_dir = BASE_PATH.SMARTY_PATH.'cache/';
+/*  调试控制台  */
+//$smarty->debugging = true;
+/*  定义定界符  */
+$smarty->left_delimiter = '<{';
+$smarty->right_delimiter = '}>';
+?>
+
+或
+<?php
+     //当前目录
+define("ROOT", str_replace("\\", "/", dirname(__FILE__))."/");
+   //define("ROOT",dirname(__FILE__));
+   // echo ROOT."/libs/Smarty.class.php";
+include ROOT."/libs/Smarty.class.php";
+
+
+$smarty = new Smarty;
+//      这是smarty2时期的用法 
+// $smarty -> template_dir = "./views/";
+// $smarty -> compile_dir = "./comps/";
+
+
+// 以下是smarty3时期用法
+$smarty -> setTemplateDir(ROOT."/views/");
+$smarty -> setCompileDir(ROOT."/comps/");
+$smarty -> setConfigDir(ROOT."/configs/");
+$smarty -> setCacheDir(ROOT."/cache/");
+// $smarty -> addTemplateDir("./home/");
+
+//就可以让定界符号使用空格
+$smarty -> auto_literal = false; 
+//设置定界符号
+$smarty -> left_delimiter = "<{";
+$smarty -> right_delimiter = "}>";
+
+
+
+
+
