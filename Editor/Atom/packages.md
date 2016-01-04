@@ -4,3 +4,5 @@
 
  * http://www.w3cschool.cn/h.html
  * http://www.runoob.com/html/html-tutorial.html
+
+* [Atom飞行手册（中文版）](https://www.gitbook.com/book/wizardforcel/atom-flight-manual-zh-cn/details)
