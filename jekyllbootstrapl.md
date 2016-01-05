@@ -71,3 +71,5 @@ http://jekyll-windows.juthilo.com/
 http://jekyllrb.com/docs/installation
 https://pages.github.com/versions/
 https://rubygems.org/gems/jekyll/versions
+
+# [upgrading Jekyll2.5 to 3.0 issue](http://m.blog.csdn.net/article/details?id=50443826)
