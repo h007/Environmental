@@ -85,11 +85,33 @@ PyCharm ->File->Settings->Project:项目名->Project interpreter(编译器)右�
 # issue
 
 1. PyCharm 建立项目创建虚拟环境 不勾选Inherit global site-packages
- * [廖雪峰 python 图形界面例子](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143200341926302f99cf6f6414dca9dfaaf6e5a25a5b1000) [hello_gui.py](https://github.com/michaelliao/learn-python3/blob/master/samples/gui/hello_gui.py)无法运行
- * 命令行 virtualenv --no-site-packages venv 也是
+ * [廖雪峰 python 图形界面例子](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143200341926302f99cf6f6414dca9dfaaf6e5a25a5b1000) [hello_gui.py](https://github.com/michaelliao/learn-python3/blob/master/samples/gui/hello_gui.py)无法运行 
+ ```
+过会重建一个环境直接用默认版python3.5运行可以运行
+
+然后再做一个环境  不    勾选结果 
+环境出现 pyvenv.cfg 内容
+  home = C:\Python35-32
+  include-system-site-packages = false
+  version = 3.5.1
+
+Include\ 为空
+出现Lib\tcl8.6\init.tcl文件
+
+hello_gui.py 可以运行
+
+然后再做一个环境    勾选结果 
+include-system-site-packages = true
+其余一样
+hello_gui.py 可以运行
+```
+ * 命令行 virtualenv --no-site-packages venv 也是不行 但只有三个目录Include Lib Scripts
+ * PyCharm yCharm 建立项目创建虚拟环境 除三个目录外多出 pyvenv.cfg文件
+ 
 2.  [virtualenv](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000) 
    virtualenv为应用提供了隔离的Python运行环境，解决了不同应用间多版本的冲突问题
-   所以 
+   
 
 
 PyCharm 
+<script src="https://gist.github.com/z007/12daaa65043092ae3aae.js"></script>
