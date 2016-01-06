@@ -76,15 +76,17 @@ development          development                 with Python
 觉得社区版还不错
 ```
 
-PyCharm ->File->Settings->Project:项目名->Project interpreter(编译器)右侧可查看(Lib\site-packages 的版本号)
+[PyCharm ->File->Settings->Project:项目名->Project interpreter(编译器)右侧可查看(Lib\site-packages 的版本号)](https://cloud.githubusercontent.com/assets/8462060/12143339/b3ca36cc-b4ba-11e5-8125-d3663fc534aa.png)
 
 新手入门可以使用Sublime Text熟悉python语法，配上一些[插件](https://github.com/z007/love.appinn.com/issues/18)也能达到IDE的效果： Development最后附个python教程，用sublime敲示例代码，能快速入门：Python教程 - [廖雪峰的官方网站](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
 
 
 
-# issue
+# issue   
 
-1. PyCharm 建立项目创建虚拟环境 不勾选Inherit global site-packages
+* 先放过 1/6/2016高了好久
+
+1. PyCharm 建立项目创建虚拟环境 [不勾选](https://cloud.githubusercontent.com/assets/8462060/12143338/b39e444a-b4ba-11e5-9624-6d02d4f63fa5.png)Inherit global site-packages
  * [廖雪峰 python 图形界面例子](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143200341926302f99cf6f6414dca9dfaaf6e5a25a5b1000) [hello_gui.py](https://github.com/michaelliao/learn-python3/blob/master/samples/gui/hello_gui.py)无法运行 
  ```
 过会重建一个环境直接用默认版python3.5运行可以运行
@@ -105,13 +107,24 @@ include-system-site-packages = true
 其余一样
 hello_gui.py 可以运行
 ```
- * 命令行 virtualenv --no-site-packages venv 也是不行 但只有三个目录Include Lib Scripts
+ * 命令行 virtualenv --no-site-packages venv 或virtualenv venv 也是不行 但只有三个目录Include Lib Scripts
  * PyCharm yCharm 建立项目创建虚拟环境 除三个目录外多出 pyvenv.cfg文件
  
 2.  [virtualenv](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000) 
    virtualenv为应用提供了隔离的Python运行环境，解决了不同应用间多版本的冲突问题
    
+# 小纠结
+
+````
+ 命令行 创建环境 正确内容是什么
+ yCharm yCharm 建立项目创建虚拟环境  正确内容是什么
 
 
-PyCharm 
-<script src="https://gist.github.com/z007/12daaa65043092ae3aae.js"></script>
+```
+
+
+
+
+# 收获
+
+* [PyCharm ->File->Settings->Project:项目名->Project interpreter(编译器)右侧可查看(Lib\site-packages 的版本号)](https://cloud.githubusercontent.com/assets/8462060/12143339/b3ca36cc-b4ba-11e5-8125-d3663fc534aa.png)
