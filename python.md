@@ -84,7 +84,7 @@ development          development                 with Python
 
 # issue   
 
-* 先放过 1/6/2016高了好久
+* 先放过 1/6/2016 搞了好久 不太多明白 现在还没用到以后再看
 
 1. PyCharm 建立项目创建虚拟环境 [不勾选](https://cloud.githubusercontent.com/assets/8462060/12143338/b39e444a-b4ba-11e5-9624-6d02d4f63fa5.png)Inherit global site-packages
  * [廖雪峰 python 图形界面例子](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143200341926302f99cf6f6414dca9dfaaf6e5a25a5b1000) [hello_gui.py](https://github.com/michaelliao/learn-python3/blob/master/samples/gui/hello_gui.py)无法运行 
