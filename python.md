@@ -57,3 +57,24 @@ deactivate
 
 
 ```
+
+
+
+h
+
+
+[python IDE](ttps://www.zhihu.com/question/27359349/answer/37136373): 用pycharm，不错的选择,还有内置python教程(新建项目选择Educatioal就是教程,[教程说明](https://www.jetbrains.com/pycharm-edu/quickstart/)
+[PyCharm Educational EditionIDE](https://www.jetbrains.com/pycharm-edu/)
+
+[PyCharm Professional/Community](https://www.jetbrains.com/pycharm/download/#section=windows)
+```
+Professional          Community                  Edu
+
+Full-featured IDE    Lightweight IDE             Free, Easy & Professional Tool
+for Python & Web     for Python & Scientific     to Learn Programming
+development          development                 with Python
+
+
+```
+
+新手入门可以使用Sublime Text熟悉python语法，配上一些[插件](https://github.com/z007/love.appinn.com/issues/18)也能达到IDE的效果： Development最后附个python教程，用sublime敲示例代码，能快速入门：Python教程 - [廖雪峰的官方网站](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)
