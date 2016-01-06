@@ -60,7 +60,6 @@ deactivate
 
 
 
-h
 
 
 [python IDE](ttps://www.zhihu.com/question/27359349/answer/37136373): 用pycharm，不错的选择,还有内置python教程(新建项目选择Educatioal就是教程,[教程说明](https://www.jetbrains.com/pycharm-edu/quickstart/)
