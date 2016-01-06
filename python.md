@@ -1,10 +1,14 @@
 * Python开发生态环境简介
   * https://github.com/dccrazyboy/pyeco/blob/master/pyeco.rst
-* [virtualenv 廖雪峰python](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000)
-* [安装Python 3.5](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316090478912dab2a3a9e8f4ed49d28854b292f85bb000)
+* * [安装Python 3.5](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014316090478912dab2a3a9e8f4ed49d28854b292f85bb000)
+* [virtualenv 廖雪峰python](http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432712108300322c61f256c74803b43bfd65c6f8d0d0000) --virtualenv 用来创建虚拟环境
+* [virtualenvwrapper 则用来管理虚拟环境](https://virtualenvwrapper.readthedocs.org/en/latest/install.html)
+* [ITeye lantian_123](http://liuzhijun.iteye.com/blog/1872241)
+
 * [简书 ndrew_liu ](http://www.jianshu.com/p/08c657bd34f1)
 * [510CTO zbwh886](http://qicheng0211.blog.51cto.com/3958621/1561685)
 * [blogs ftofficer](http://blogs.360.cn/blog/how-360-uses-python-1-virtualenv/)
+* 
 ```
 用pip安装virtualenv： pip install virtualenv
 2.创建目录
