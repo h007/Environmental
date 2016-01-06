@@ -62,7 +62,7 @@ deactivate
 
 
 
-[python IDE](https://www.zhihu.com/question/27359349/answer/37136373): 用pycharm，不错的选择,[PyCharm Educational EditionIDE](https://www.jetbrains.com/pycharm-edu/)内置python教程(新建项目选择Educatioal就是教程,[教程说明](https://www.jetbrains.com/pycharm-edu/quickstart/)
+[python IDE](https://www.zhihu.com/question/27359349/answer/37136373): 用pycharm，不错的选择,[PyCharm Educational EditionIDE](https://www.jetbrains.com/pycharm-edu/)内置python教程(新建项目选择Educatioal就是教程,[教程说明](https://www.jetbrains.com/pycharm-edu/quickstart/))
 
 
 [PyCharm Professional/Community/Edu 对比](https://www.jetbrains.com/pycharm/download/#section=windows)
