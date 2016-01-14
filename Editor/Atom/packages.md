@@ -1,4 +1,6 @@
 * https://atom.io/packages
+* https://linux.cn/tag-Atom.html
+* https://linux.cn/article-6871-1.html --Web 开发者的 Atom 编辑器插件
 
 ```
 使用快捷键 command + ,/ctrl + , 打开偏好设置。点击左侧的 Install 即可浏览线上的插件 。
