@@ -18,3 +18,5 @@
 2. git  安装 系统环境选择最后一项  Run git and included Unix tools from the Windows Command Prompt
 ![](https://cloud.githubusercontent.com/assets/8462060/12740865/7bdb4014-c9b2-11e5-9bc3-630d73a2fedc.png)
 
+
+3. [Git 资源整理](http://www.jianshu.com/p/25647b9920b7)
