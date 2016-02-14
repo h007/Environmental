@@ -69,7 +69,10 @@ window
 * http://my.oschina.net/VASKS/blog/388907
 
 
-
+# [Vim 的纵向编辑模式](http://www.ibm.com/developerworks/cn/linux/l-cn-vimcolumn/)
+```
+以 Window 版的 Vim 的纵向编辑模式由 ctrl-q启动
+```
 # 折行 形式 [* ](http://yyq123.blogspot.jp/2010/07/vim-wrap.html)
 ```
 :set wrap
