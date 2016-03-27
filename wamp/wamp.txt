@@ -31,6 +31,19 @@ https://bmehla.wordpress.com/2011/04/30/run-mysql-command-line-with-wamp/
 1  127.0.0.1/phpMyadmin  主页
 权限->root localhost ->编辑权限->修改密码
 修改密码
+
+可能出现
+Forbidden
+You don't have permission to access /phpmyadmin/ on this server.
+
+Change the file content of c:\wamp\alias\phpmyadmin.conf to the following.
+
+<Directory "c:/wamp/apps/phpmyadmin3.4.5/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+        Allow from all
+</Directory>
  
 2
 F:\Program Files\wamp\apps\phpmyadmin3.4.10.1
@@ -53,7 +66,7 @@ $cfg['Servers'][$i]['password'] = '';
  http://php.net/date.timezone
 date.timezone = Asia/Shanghai
 5.虚拟主机配置
-
+     F:\wamp\bin\apache\Apache2.2.21\conf
  1  编辑httpd.conf，查找Include conf/extra/httpd-vhosts.conf，把前面注释符号“#”删掉。
  2  编辑httpd-vhosts.conf，我把WAMPServer安装在D:/wamp，所以我这里的路径是D:\wamp\Apache2\conf\extra。  
 
@@ -81,7 +94,7 @@ DocumentRoot "F:/PHPhomework/web/shop"
 3  修改C:/WINDOWS/system32/drivers/etc/host这个文件，用记事本打开，加上如下内容:
    127.0.0.1  www.shop.com
 
-好了，然后重启apache，在浏览器里面输入www.cms.com，看看访问到的内容是不是workplace这个目录呢。
+好了，然后重启apache，在浏览器里面输入www.shop.com，看看访问到的内容是不是workplace这个目录呢。
 --------------------------------------------------------------------------------------------------------------------------
 thinkphp  示例包 配置
 ThinkPHP示例（for ThinkPHP3.1+版本）
