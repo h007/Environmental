@@ -82,6 +82,11 @@ HTMLEntity Snippets
 当你想输入html实体标签时，然后又记不住时，使用这个插件吧。
 
 
+
+FileDiffs
+dos 文件对比
+http://www.howtogeek.com/206123/how-to-use-fc-file-compare-from-the-windows-command-prompt/
+
 Git Gutter
 
 
