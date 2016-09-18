@@ -1,0 +1,14 @@
+from: http://lib.csdn.net/article/git/10756
+
+下载 vim 的插件 pathogen；
+ 到 pathogen 的下载网页：http://www.vim.org/scripts/script.php?script_id=2332 ，下载pathogen.zip
+ 提取出压缩包中的 pathogen.vim ，放到目录 E:\Vim\vim74\autoload 下面。用任意一种文本编辑器打开 E:\Vim\_vimrc 文件，
+ 在开头添加以下一行内容：
+ execute pathogen#infect() 
+ 保存 _vimrc 文件并退出编辑。
+ 
+ 
+ 用 Git 下载并安装其他 vim 插件。
+        在目录 E:\Vim\vimfiles 下面创建一个名为 bundle 的子目录。
+        到网站：http://vim-scripts.org/vim/scripts.html 上去找要下载的插件，比如要下载名为 EditPlus 的配色方案
+        git clone https://github.com/vim-scripts/EditPlus
