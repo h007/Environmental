@@ -1,0 +1,205 @@
+
+===========================from============================================
+https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html
+http://www.freebuf.com/sectool/95167.html
+
+======================envirument 16.04 en==============================
+
+=====ubuntu shadowsocks-qt5 SwitchyOmega gfwlist Google 　　DNS　８.８.８.８====图形用户界面（Graphical User Interface，简称GUI）===
+1.安装shadowsocks-qt5
+
+sudo add-apt-repository ppa:hzwhuang/ss-qt5
+sudo apt-get update
+sudo apt-get install shadowsocks-qt5
+
+2. 打开shadowsocks-qt5 导入 gui-config.json 配置信息
+
+3.chrome chrome://extensions/ （Alt+f  l e） 打开开发者模式 安装SwitchyOmega
+
+打开SwitchyOmega 从备份导入配置信息即可，如果不行再看3.1
+
+3.1
+
+设置代理地址
+
+安装好插件会自动跳到设置选项，有提示你可以跳过。
+左边新建情景模式-选择代理服务器-比如命名为SS（叫什么无所谓）其他默认之后创建，
+之后在代理协议选择SOCKS5，地址为127.0.0.1,端口默认1080 。然后保存即应用选项。
+
+设置自动切换
+
+接着点击自动切换 ( Auto switch）上面的不用管，在按照规则列表匹配请求后面选择刚才新建的SS，
+默认情景模式选择直接连接。点击应用选项保存。再往下规则列表设置选择AutoProxy 然后将这个地址填进去，
+点击下面的立即更新情景模式，会有提示更新成功！
+https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
+
+
+=======ubuntu shadowsocks SwitchyOmega gfwlist Google　DNS８.８.８.８======命令行界面（英语：command-line interface，缩写：CLI）====
+https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html
+http://www.freebuf.com/sectool/95167.html
+
+ubuntu安装shadowsocks
+
+用PIP安装很简单，
+
+sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-setuptools m2crypto
+
+接着安装shadowsocks
+
+pip install shadowsocks
+
+如果是ubuntu16.04 直接 (16.04 里可以直接用apt 而不用 apt-get 这是一项改进）
+
+sudo apt install shadowsocks
+
+当然你在安装时候肯定有提示需要安装一些依赖比如python-setuptools m2crypto ，依照提示安装然后再安装就好。也可以网上搜索有很多教程的。
+
+启动shadowsocks
+
+安装好后，在本地我们要用到sslocal ，终端输入sslocal --help 可以查看帮助
+
+
+===========install privoxy====================
+
+ sudo apt-get install privoxy
+
+ sudo  vi /etc/privoxy/config
+
+listen-address 127.0.0.1:8118         //找到783行，去掉注释即可
+forward-socks5t / 127.0.0.1:1080.    //找到1336行，去掉注释即可，保证1080端口和ss配置中一致，注意1080后面与个小数点。
+
+
+
+最后让终端走代理
+
+vi /ect/profile
+添加一下两行
+
+export http_proxy=http://127.0.0.1:8118
+export ftp_proxy=http://127.0.0.1:8118
+
+
+------------shadowsocks.json-----------------
+{
+"server":"8.8.8.8",
+"server_port":1234,
+"local_port":1080,
+"password":"123456",
+"timeout":600,
+"method":"aes-256-cfb"
+}
+-----------------------------
+
+vi ./bashrc
+
+alias  sslocal="sslocal -c /home/hello/shadowsocks.json"
+
+source ./bashrc
+
+
+
+sslocal
+
+service privoxy start
+测试 youtube-dl https://youtu.be/Q6dsRpVyyWs
+
+
+(
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+
+sudo chmod a+rx /usr/local/bin/youtube-dl
+
+tar xf privoxy-3.0.23-stable-src.tar.gz   //解压缩
+cd privoxy-3.0.23-stable
+useradd privoxy                      //进入目录后创建privoxy用户，然后安装
+ autoheader && autoconf
+./configure
+ make && make install
+Vim /usr/local/etc/privoxy/config   修改配置文件
+listen-address 127.0.0.1:8118         //找到783行，去掉注释即可
+forward-socks5t / 127.0.0.1:1080.    //找到1336行，去掉注释即可，保证1080端口和ss配置中一致，注意1080后面与个小数点。
+
+)
+
+
+开机后台自动运行 sslocal
+
+如果你上面可以代理上网了可以进行这一步，之前我让你不要关掉终端，因为关掉终端的时候代理就随着关闭了，之后你每次开机或者关掉终端之后，下次你再想用代理就要重新在终端输入这样的命令 sslocal  -c /home/shadowsocks.json ，挺麻烦是不？
+
+我们现在可以在你的ubuntu上安装一个叫做supervisor的程序来管理你的sslocal启动。关于supervisor更多点击这
+
+sudo apt-get install supervisor
+
+安装好后我们可以在/etc/supervisor/目录下找到supervisor.conf配置文件，我们可以用以下命令来编辑
+
+sudo vi /etc/supervisor/supervisor.conf
+
+在这个文件的最后加上以下内容
+
+[program:shadowsocks]
+command=sslocal -c /home/shadowsocks.json # alias  sslocal  不可以
+autostart=true
+autorestart=true
+user=root
+log_stderr=true
+logfile=/var/log/shadowsocks.log
+
+当然在16.04里你可以直接在/etc/supervisor/conf.d/下新建个文件比如ss.conf然后加入上面内容。
+
+command = 这里json文件的路径根据你的文件路径来填写,不可使用别名。确认无误后记得保存。sslocal 和ssserver这两个命令是被存在 /usr/local/bin/下面的，我们要拷贝一份命令文件到/bin
+
+ sudo cp /usr/local/bin/sslocal /bin  (注意空格)
+
+注意：16.04 命令huo在 /usr/bin/下所以就用
+
+sudo cp /usr/bin/sslocal /bin  (注意空格)
+
+现在关掉你之前运行sslocal命令的终端，再打开终端输入sudo service supervisor restart 然后去打开浏览器看看可不可以继续代理上网。你也可以用ps -ef|grep sslocal命令查看sslocal是否在运行。
+
+
+===============================设置开机启动===============================
+
+这个时候我们需要在/etc下编辑一个叫rc.local的文件 ，让supervisor开机启动。
+
+sudo vi /etc/rc.local
+
+在这个配置文件的exit 0前面一行加上 service supervisor start 保存。
+看你是否配置成功你可以在现在关机重启之后直接打开浏览器看是否代理成功。
+
+ ps -A | grep privoxy
+ ps -A | grep supervisor
+
+
+/etc/init.d/privoxy start
+/etc/init.d/supervisor start
+
+
+但是在 kali 未生效 那就是用chkconfig
+=================kalilinux chkconfig 设置开机开机启动 ==========================================
+http://man.linuxde.net/chkconfig
+http://www.tecmint.com/chkconfig-command-examples/
+
+chkconfig --list             #列出所有的系统服务。
+chkconfig --add httpd        #增加httpd服务。
+chkconfig --del httpd        #删除httpd服务。
+chkconfig --level httpd 2345 on        #设置httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。
+chkconfig --list               #列出系统所有的服务启动情况。
+chkconfig --list mysqld        #列出mysqld服务设置情况。
+chkconfig --level 35 mysqld on #设定mysqld在等级3和5为开机运行服务，--level 35表示操作只在等级3和5执行，on表示启动，off表示关闭。
+chkconfig mysqld on            #设定mysqld在各等级为on，“各等级”包括2、3、4、5等级。
+
+
+chkconfig --list supervisor
+chkconfig --list privoxy
+
+chkconfig --level 35 supervisor on
+
+chkconfig --level 35 privoxy on
+
+
+
+
+=========================================Windows ==============================================
+https://github.com/shadowsocks/shadowsocks-windows
