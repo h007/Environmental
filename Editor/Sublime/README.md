@@ -21,6 +21,20 @@
 <br/> http://python.jobbole.com/81312/
 <br/> http://www.imooc.com/article/2931
 
+
+## 关闭自动更新
+> Preferences → Settings User
+```
+{
+	"color_scheme": "Packages/User/SublimeLinter/Monokai (SL).tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"update_check": false
+}
+```
+
 ```
 -----------------html---------------
 Vintage
