@@ -74,7 +74,7 @@ forward-socks5t / 127.0.0.1:1080.    //找到1336行，去掉注释即可，保�
 
 最后让终端走代理
 
-vi /ect/profile
+sudo vi /ect/profile
 添加一下两行
 
 export http_proxy=http://127.0.0.1:8118
@@ -92,7 +92,8 @@ export ftp_proxy=http://127.0.0.1:8118
 }
 -----------------------------
 
-vi ./bashrc
+----可省略----------
+sudo vi ./bashrc
 
 alias  sslocal="sslocal -c /home/hello/shadowsocks.json"
 
@@ -123,6 +124,7 @@ forward-socks5t / 127.0.0.1:1080.    //找到1336行，去掉注释即可，保�
 
 )
 
+------------------------------------------------
 
 开机后台自动运行 sslocal
 
@@ -152,7 +154,7 @@ command = 这里json文件的路径根据你的文件路径来填写,不可使�
 
  sudo cp /usr/local/bin/sslocal /bin  (注意空格)
 
-注意：16.04 命令huo在 /usr/bin/下所以就用
+注意：16.04 命令或在 /usr/bin/下所以就用
 
 sudo cp /usr/bin/sslocal /bin  (注意空格)
 
@@ -187,7 +189,7 @@ chkconfig --del httpd        #删除httpd服务。
 chkconfig --level httpd 2345 on        #设置httpd在运行级别为2、3、4、5的情况下都是on（开启）的状态。
 chkconfig --list               #列出系统所有的服务启动情况。
 chkconfig --list mysqld        #列出mysqld服务设置情况。
-chkconfig --level 35 mysqld on #设定mysqld在等级3和5为开机运行服务，--level 35表示操作只在等级3和5执行，on表示启动，off表示关闭。
+chkconfig --level 35 mysqld on #设定mysqld在等级3和5为开机运行服务，--level 35表示操作等级3和5执行同时等级4也开启了，on表示启动，off表示关闭。
 chkconfig mysqld on            #设定mysqld在各等级为on，“各等级”包括2、3、4、5等级。
 
 
@@ -197,6 +199,14 @@ chkconfig --list privoxy
 chkconfig --level 35 supervisor on
 
 chkconfig --level 35 privoxy on
+
+
+
+kali 注意事项：
+通过 apt-get 可以安装 privoxy supervisor 如果不行那就回到虚拟机干净的点 
+
+如果执行 apt-get autoremove:可能会出现问题
+    删除为了满足其他软件包的依赖而安装的，但现在不再需要的软件包。
 
 
 
