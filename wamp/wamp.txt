@@ -28,6 +28,36 @@ path add mysql路径 php 路径（类似Java环境配置http://www.runoob.com/ja
 https://bmehla.wordpress.com/2011/04/30/run-mysql-command-line-with-wamp/
 
 
+wamp localhost 403 forbiden
+http://stackoverflow.com/questions/8204902/wamp-403-forbidden-message-on-windows-7
+The access to your Apache server is forbidden from addresses other than 127.0.0.1 in httpd.conf (Apache's config file) :
+
+<Directory "c:/wamp/www/">
+    Options Indexes FollowSymLinks
+    AllowOverride all
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Directory>
+The same goes for your PHPMyAdmin access, the config file is phpmyadmin.conf :
+
+<Directory "c:/wamp/apps/phpmyadmin3.4.5/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+</Directory>
+You can set them to allow connections from all IP addresses like follows :
+
+AllowOverride All
+Order allow,deny
+Allow from all
+
+
+
+
+mysql
 1  127.0.0.1/phpMyadmin  主页
 权限->root localhost ->编辑权限->修改密码
 修改密码
