@@ -39,3 +39,32 @@ npm ls <pkg># 查看特定package的信息
 
 npm root # 查看当前包的安装路径
 npm root -g #查看全局npm安装的路径
+
+
+
+----------------yarn-------------------
+
+https://yarnpkg.com/en/docs/usage
+
+Starting a new project
+
+yarn init
+Adding a dependency
+
+yarn add [package]
+yarn add [package]@[version]
+yarn add [package]@[tag]
+Updating a dependency
+
+yarn upgrade [package]
+yarn upgrade [package]@[version]
+yarn upgrade [package]@[tag]
+Removing a dependency
+
+yarn remove [package]
+Installing all the dependencies of project
+
+yarn
+or
+
+yarn install
