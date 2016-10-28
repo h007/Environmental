@@ -1,0 +1,32 @@
+http://www.gulpjs.com.cn/
+
+https://github.com/nimojs/gulp-book
+
+https://www.cnblogs.com/chuaWeb/p/gulp.html
+
+
+
+https://github.com/nimojs/gulp-book/blob/master/chapter2.md
+https://www.npmjs.com/package/pump
+
+
+
+----------------browsersync------------------
+
+http://yanhaijing.com/tool/2015/12/26/my-browsersync/
+
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        files: "**",
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+
+gulp.task('default', ["browser-sync"]);
+
+----------------------------------
