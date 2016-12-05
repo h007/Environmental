@@ -1,0 +1,73 @@
+wampserver3.0.6_x64_apache2.4.23_mysql5.7.14_php5.6.25-7.0.10
+
+环境配置
+
+
+1.修改mysql 密码
+http://localhost/phpmyadmin/
+以下两处无需输入密码
+E:\dev\wamp64\apps\phpmyadmin4.6.4
+config.inc.php
+$cfg['Servers'][$i]['password'] = '';
+
+E:\dev\wamp64\apps\phpmyadmin4.6.4\libraries
+config.default.php
+$cfg['Servers'][$i]['password'] = '';
+
+2. 访问权限
+   注意：APACHE24 设置
+   
+   <ifDefine APACHE24>
+		Require  local
+     # 默认设置本地访问
+   	</ifDefine>
+  
+  <ifDefine APACHE24>
+	    Require  ip  192.168 
+      #		
+</ifDefine>
+  
+   <ifDefine APACHE24>
+		Require  local
+    Require  ip  192.168 
+	
+	</ifDefine>
+  
+   <ifDefine APACHE24>
+			 Require   local,  192.168.1.102 # 错误的匹配
+	</ifDefine>
+  
+   <ifDefine APACHE24>
+			 Require   local ip  192.168.1.102 # 等价	Require local
+ </ifDefine>
+   
+   <ifDefine APACHE24>
+		Require  local
+    # 	Require  ip  192.168 
+  	# 	Require  local
+	  #   Require   local,  192.168.1.102 # 错误的匹配
+	</ifDefine>
+ 
+ 2.1数据库
+ E:\dev\wamp64\alias\phpmyadmin.conf
+ 
+ Alias /phpmyadmin "E:/dev/wamp64/apps/phpmyadmin4.6.4/"
+
+<Directory "E:/dev/wamp64/apps/phpmyadmin4.6.4/">
+	Options Indexes FollowSymLinks MultiViews
+  AllowOverride all
+  <ifDefine APACHE24>
+		Require  local
+	</ifDefine>
+	<ifDefine !APACHE24>
+		Order Deny,Allow
+    Deny from all
+    Allow from localhost ::1 127.0.0.1
+	</ifDefine>
+
+# To import big file you can increase values
+  php_admin_value upload_max_filesize 128M
+  php_admin_value post_max_size 128M
+  php_admin_value max_execution_time 360
+  php_admin_value max_input_time 360
+</Directory>
