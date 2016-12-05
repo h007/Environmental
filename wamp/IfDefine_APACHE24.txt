@@ -18,34 +18,42 @@ $cfg['Servers'][$i]['password'] = '';
    注意：APACHE24 设置
    
    <ifDefine APACHE24>
-		Require  local
-     # 默认设置本地访问
+	Require  local
+	#	默认设置本地访问
    	</ifDefine>
-  
+	
   <ifDefine APACHE24>
-	    Require  ip  192.168 
-      #		
+		Require all granted 
+		# 等价 Allow from all
+ </ifDefine>
+ 
+  <ifDefine APACHE24>
+	Require  ip  192.168 
+	#	设置ip段
 </ifDefine>
   
    <ifDefine APACHE24>
-		Require  local
-    Require  ip  192.168 
-	
-	</ifDefine>
+	Require  local
+    Require  ip  192.168 
+	#	Require 条件允许并列设置
+</ifDefine>
   
    <ifDefine APACHE24>
-			 Require   local,  192.168.1.102 # 错误的匹配
+	 Require   local,  192.168.1.102 
+	 # 错误的匹配
 	</ifDefine>
   
    <ifDefine APACHE24>
 			 Require   local ip  192.168.1.102 # 等价	Require local
  </ifDefine>
+ 
+ 
    
    <ifDefine APACHE24>
 		Require  local
     # 	Require  ip  192.168 
   	# 	Require  local
-	  #   Require   local,  192.168.1.102 # 错误的匹配
+	 #   Require   local,  192.168.1.102 # 错误的匹配
 	</ifDefine>
  
  2.1数据库
@@ -71,3 +79,45 @@ $cfg['Servers'][$i]['password'] = '';
   php_admin_value max_execution_time 360
   php_admin_value max_input_time 360
 </Directory>
+
+2.2 添加 VirtualHost 虚拟主机
+
+ 1  httpd.conf，查找Include conf/extra/httpd-vhosts.conf，APACHE24默认开启了。
+ E:\dev\wamp64\bin\apache\apache2.4.23\conf\extra\httpd-vhosts.conf
+ 
+ # Virtual Hosts
+#
+
+<VirtualHost *:80>
+	ServerName localhost
+	DocumentRoot E:/dev/wamp64/www
+	<Directory  "E:/dev/wamp64/www/">
+		Options +Indexes +Includes +FollowSymLinks +MultiViews
+		AllowOverride All
+		Require all granted
+
+	</Directory>
+</VirtualHost>
+#
+
+
+Listen 8090
+# 添加监听端口 8090  非默认80 端口出现错误提示(设置端口不恰当),
+# Port number for <VirtualHost *:port> has not correct value or is not the same in file
+# E:/dev/wamp64/bin/apache/apache2.4.23/conf/extra/httpd-vhosts.conf
+# 这可设置是可以理解的，本地多个项目，非本地访问时 输入其中一个项目 tao.io 是无意的(host 文件只在本机使用，所以需要使用不同端口区别项目目)
+# 使用 代理上网时时可能会出现 tao.io:8090 无法解析(比如XX-Net 设置 全局通过 GAEproxy 代理 出现错误DNSLookupFailedError) 
+<VirtualHost *:8090>
+ServerName tao.io
+# 将ServerName 设置成2 tao.io 出现以下提示?
+# The ServerName 2tao.io has syntax error in file E:/dev/wamp64/bin/apache/apache2.4.23/conf/extra/httpd-vhosts.conf
+ 
+ServerAlias tao.io
+DocumentRoot "D:/dlocal/webData/2tao"
+<Directory "D:/dlocal/webData/2tao">
+   Options +Indexes +Includes +FollowSymLinks +MultiViews
+	AllowOverride All
+	Require all granted
+</Directory>
+</VirtualHost>
+
