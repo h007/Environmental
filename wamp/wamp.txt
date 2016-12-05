@@ -28,7 +28,7 @@ path add mysql路径 php 路径（类似Java环境配置http://www.runoob.com/ja
 https://bmehla.wordpress.com/2011/04/30/run-mysql-command-line-with-wamp/
 
 
-wamp localhost 403 forbiden
+wamp apache2.2 localhost 403 forbiden
 http://stackoverflow.com/questions/8204902/wamp-403-forbidden-message-on-windows-7
 The access to your Apache server is forbidden from addresses other than 127.0.0.1 in httpd.conf (Apache's config file) :
 
@@ -204,6 +204,7 @@ $smarty -> auto_literal = false;
 //设置定界符号
 $smarty -> left_delimiter = "<{";
 $smarty -> right_delimiter = "}>";
+
 
 
 
