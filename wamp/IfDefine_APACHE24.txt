@@ -15,6 +15,10 @@ config.default.php
 $cfg['Servers'][$i]['password'] = '';
 
 2. 访问权限
+
+http://www.phperz.com/article/14/1029/31994.html
+
+https://dba.stackexchange.com/questions/78956/how-could-i-connect-to-mysql-database-running-on-wamp-server-from-other-computer
    注意：APACHE24 设置
    
    <ifDefine APACHE24>
