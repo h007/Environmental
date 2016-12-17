@@ -1,1 +1,213 @@
+为 GitHub 设置 GPG 签名
+https://about.ac/2016/04/github-with-gpg-signature.html
 
+gpg-signature-verification
+https://github.com/blog/2144-gpg-signature-verification
+
+https://help.github.com/categories/gpg/
+
+Git Tools - Signing Your Work
+https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work
+
+
+
+第 1 步：安装 GPG 命令行工具
+
+使用 Homebrew 安装 GPG 命令行工具 gnupg：
+
+$ brew install gpg
+
+window
+
+# gpg4win
+https://www.gpg4win.org/
+
+https://www.gpg4win.org/documentation.html
+
+
+第 2 步：生成 GPG 密钥
+
+执行下述命令生成 GPG 密钥：
+
+$ gpg --gen-key
+
+-----------注意在Windows 下gpg --gen-key 生成密钥环境--------------------------------------------------------
+
+通过 windows cmd ，gpg4win 客户端生成
+
+或者 git  bash 
+两者生成生成的密钥 通过  gpg --list-keys 看不到对方环境生成的，只可以在各自环境查看
+---------------------------------------------------------------------------
+在生成的过程中：
+
+询问密钥种类时按回车键，选择默认类型（RSA and RSA）；
+询问密钥大小时，输入“4096”；
+询问密钥有效期时按回车键，使用默认值，即永不过期；
+输入“y”确认上述设置；
+输入真实姓名和电子邮件地址，“Comment”可留空；
+输入“O”确认；
+输入保护私钥的密码；
+以上信息设置完毕后，等待程序生成密钥。
+
+注意 电子邮件地址必须是 https://github.com/settings/emails  里面的邮箱
+否则会出现以下错误
+
+ git commit -m "github-with-gpg-signature content"
+gpg: skipped "022F96B8C3D463B7": secret key not available
+gpg: signing failed: secret key not available
+error: gpg failed to sign the data
+fatal: failed to write commit object
+
+
+第 3 步：添加 GPG 公钥
+
+执行下述命令，查看可用的 GPG 密钥：
+
+$ gpg --list-keys
+/Users/userA/.gnupg/pubring.gpg
+-------------------------------
+pub   4096R/4A667092 2016-04-16
+uid                  Your Name <your-name@gmail.com>
+sub   4096R/48E027A6 2016-04-16
+其中，4A667092 是 GPG 密钥的 ID。
+
+执行下属命令，输出指定的 GPG 公钥：
+
+$ gpg --armor --export <GPG-ID>
+把 <GPG-ID> 替换成具体的 ID。在输出的内容中，
+从“—–BEGIN PGP PUBLIC KEY BLOCK—–”复制到“—–END PGP PUBLIC KEY BLOCK—–”。
+打开 GitHub 设置密钥的网页，粘贴 GPG 密钥。
+https://github.com/settings/keys
+
+
+第 4 步：设置 Git
+
+最后要设置 Git，让 Git 使用指定的 GPG 密钥，并让 Git 在提交时使用 GPG 密钥签名。
+
+在 ~/.gitconfig 文件中添加下述设置（如果集中管理 dotfiles，则在相应的文件中添加）：
+
+[user]
+  ...
+  signingkey = <GPG-ID>
+
+  ...
+[commit]
+  gpgsign = true
+
+  ---------通过命令修改 .gitconfig 文件-------
+  命令添加 git config --global user.signingkey <GPG-ID>
+  https://help.github.com/articles/telling-git-about-your-gpg-key/
+  ------------------
+
+  命令添加 git config --global commit.gpgsign tru
+  https://help.github.com/articles/signing-commits-using-gpg/
+
+
+
+  
+第 5 步：签名提交
+
+按照常规的方式提交，Git 会询问私钥的密码，输入即可。
+
+git commit -m '<commit message>'
+
+You need a passphrase to unlock the secret key for
+user: "Your Name <your-name@gmail.com>"
+4096-bit RSA key, ID 4A667092, created 2016-04-16
+
+...
+
+
+
+扩展阅读：
+
+
+Gnu Privacy Guard mini HOWTO
+http://www.dewinter.com/gnupg_howto/english/GPGMiniHowto.html
+
+How To Use GPG on the Command Line
+http://blog.ghostinthemachines.com/2015/03/01/how-to-use-gpg-command-line/
+
+Creating a new GPG key with subkeys
+https://www.void.gr/kargig/blog/2013/12/02/creating-a-new-gpg-key-with-subkeys/
+
+
+附录：
+
+$ gpg -h
+gpg (GnuPG) 1.4.20
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, RSA-E, RSA-S, ELG-E, DSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+
+Syntax: gpg [options] [files]
+Sign, check, encrypt or decrypt
+Default operation depends on the input data
+
+Commands:
+
+ -s, --sign [file]             make a signature
+     --clearsign [file]        make a clear text signature
+ -b, --detach-sign             make a detached signature
+ -e, --encrypt                 encrypt data
+ -c, --symmetric               encryption only with symmetric cipher
+ -d, --decrypt                 decrypt data (default)
+     --verify                  verify a signature
+     --list-keys               list keys
+     --list-sigs               list keys and signatures
+     --check-sigs              list and check key signatures
+     --fingerprint             list keys and fingerprints
+ -K, --list-secret-keys        list secret keys
+     --gen-key                 generate a new key pair
+     --delete-keys             remove keys from the public keyring
+     --delete-secret-keys      remove keys from the secret keyring
+     --sign-key                sign a key
+     --lsign-key               sign a key locally
+     --edit-key                sign or edit a key
+     --gen-revoke              generate a revocation certificate
+     --export                  export keys
+     --send-keys               export keys to a key server
+     --recv-keys               import keys from a key server
+     --search-keys             search for keys on a key server
+     --refresh-keys            update all keys from a keyserver
+     --import                  import/merge keys
+     --card-status             print the card status
+     --card-edit               change data on a card
+     --change-pin              change a card's PIN
+     --update-trustdb          update the trust database
+     --print-md algo [files]   print message digests
+
+Options:
+
+ -a, --armor                   create ascii armored output
+ -r, --recipient NAME          encrypt for NAME
+ -u, --local-user              use this user-id to sign or decrypt
+ -z N                          set compress level N (0 disables)
+     --textmode                use canonical text mode
+ -o, --output                  use as output file
+ -v, --verbose                 verbose
+ -n, --dry-run                 do not make any changes
+ -i, --interactive             prompt before overwriting
+     --openpgp                 use strict OpenPGP behavior
+     --pgp2                    generate PGP 2.x compatible messages
+
+(See the man page for a complete listing of all commands and options)
+
+Examples:
+
+ -se -r Bob [file]          sign and encrypt for user Bob
+ --clearsign [file]         make a clear text signature
+ --detach-sign [file]       make a detached signature
+ --list-keys [names]        show keys
+ --fingerprint [names]      show fingerprints
+
+Please report bugs to <gnupg-bugs@gnu.org>.
