@@ -1,1 +1,11 @@
+http://ksria.com/gnvm/
 
+存在 Node.js 环境
+下载并解压缩 gnvm.exe 保存到 Node.js 所在的文件夹
+gnvm version
+gnvm config registry TAOBAO
+gnvm config registry test
+gnvm search 4.*.*
+gnvm install 4.2.2 6.9.1
+gnvm ls
+gnvm use 4.2.2
