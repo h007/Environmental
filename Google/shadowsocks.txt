@@ -208,8 +208,11 @@ kali 注意事项：
 如果执行 apt-get autoremove:可能会出现问题
     删除为了满足其他软件包的依赖而安装的，但现在不再需要的软件包。
 
+设置ProxyChains
+https://wizardforcel.gitbooks.io/daxueba-kali-linux-tutorial/content/11.html
 
-
+proxychains+shadowsocks神器
+http://shawnelee88.github.io/2015/07/10/proxychains-shadowsocks%E7%A5%9E%E5%99%A8/
 
 =========================================Windows ==============================================
 https://github.com/shadowsocks/shadowsocks-windows
