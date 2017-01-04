@@ -1,7 +1,16 @@
 # [emacs](https://www.gnu.org/software/emacs/tour/)
   * [wikipedia](https://zh.wikipedia.org/wiki/Emacs)
   * [Download](https://ftp.gnu.org/gnu/emacs/windows/)
-  * [Guide](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)
+  * [Guide 如何一年内成为emacs高手](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)
+    * [陈斌 blog](http://blog.binchen.org/)
+    * [Emacs – 陈斌](https://codetimecn.com/episodes/emacs)
+    * [ergoemacs](http://ergoemacs.org/emacs/emacs.html)
+    * [李杀网](http://xahlee.org/)
+    * [emacs-china](https://emacs-china.org/)
+    * [book.emacs-china](http://book.emacs-china.org/)
+    * [emacs新手入门资料汇集地](https://github.com/emacs-china/hello-emacs)
+    * [Interview with Richard Stallman](http://hackerpublicradio.org/eps.php?id=1116)
+  
     * [HUB](http://blog.csdn.net/PfanAya/article/category/784884)  --CSDN 解决方案
     
     * [HUB2](http://www.cnblogs.com/robertzml/tag/Emacs/)         -- 基础教程
@@ -15,13 +24,24 @@
      ```
     * [zhihu](http://www.zhihu.com/topic/19572409)
     * [王垠](http://arch.pconline.com.cn//pcedu/soft/gj/photo/0609/865628.html)
-    * [1](http://ergoemacs.org/emacs/emacs.html)
-    * [2](http://www.emacswiki.org/emacs/%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C)
+    * [2](http://www.emacswiki.org/emacs/%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C)
     * [3](http://www.cbi.pku.edu.cn/chinese/documents/csdoc/emacs/)
     * [4](http://www.ibm.com/developerworks/cn/education/linux/l-emacs/l-emacs.html)
     * [5](http://www.jianshu.com/p/b4cf683c25f3)
   
 # emacs 环境配置 插件安装
+
+ * package
+ * [melpa](https://melpa.org)
+ ```
+ Alt + X list-packages
+ 回车
+ 搜索包 Ctrl+S 
+ js2-mode
+ 回车
+ 未找到匹配结果
+ 继续 Ctrl+ S  去找下一个
+ ```
 
  * Evim
   * http://emacswiki.org/emacs/Evil --
