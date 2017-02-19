@@ -7,6 +7,19 @@ http://js.jirengu.com/
 
 本地搭建
 window搭建(npm install -g jsbin 或 https://github.com/jsbin/jsbin.git)各种报错(环境不纯 异常^^)换到linux
+
+window
+安装 gnvm install 0.10.26
+
+node -v
+0.10.26
+npm -v
+如果不是1.4.3对npm 降级(及其重要)
+npm -g install npm@1.43
+(使用gnvm node版本进行控制但是没有对 没有对每个安装的node 的默认npm 进行控制nvm做到了
+有空尝试下nvm-windows 是否做到了 https://github.com/coreybutler/nvm-windows)
+
+Linux
 1.nvm管理node版本
 # cd user/git
 # git clone https://github.com/creationix/nvm.git
