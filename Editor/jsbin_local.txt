@@ -10,12 +10,16 @@ window搭建(npm install -g jsbin 或 https://github.com/jsbin/jsbin.git)各种�
 
 window
 安装 gnvm install 0.10.26
-
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 node -v
 0.10.26
 npm -v
 如果不是1.4.3对npm 降级(及其重要)
-npm -g install npm@1.43
+npm -g install npm@1.4.3
+(升级 npm -g install npm )
+npm install -g jsbin --registry=https://registry.npm.taobao.org
+
+jsbin
 (使用gnvm node版本进行控制但是没有对 没有对每个安装的node 的默认npm 进行控制nvm做到了
 有空尝试下nvm-windows 是否做到了 https://github.com/coreybutler/nvm-windows)
 
