@@ -1,0 +1,14 @@
+$ cd ~/git
+$ git clone https://github.com/creationix/nvm.git
+
+配置终端启动时自动执行 source ~/git/nvm/nvm.sh,
+在 /etc/profile文件添加以下命令:
+
+
+source ~/git/nvm/nvm.sh
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node/
+
+执行source /etc/profile 或者 重新打开你的终端, 输入 nvm 
+
+
+http://blog.csdn.net/pzlsun/article/details/41914473
