@@ -1,0 +1,38 @@
+在线
+
+官方
+https://github.com/jsbin/jsbin
+国内
+http://js.jirengu.com/
+
+本地搭建
+window搭建(npm install -g jsbin 或 https://github.com/jsbin/jsbin.git)各种报错(环境不纯 异常^^)换到linux
+1.nvm管理node版本
+# cd user/git
+# git clone https://github.com/creationix/nvm.git
+
+配置终端启动时自动执行 source ~/git/nvm/nvm.sh,
+在 /etc/profile文件添加以下命令:
+source ~/git/nvm/nvm.sh
+export NVM_NODEJS_ORG_MIRROR=http://npm.taobao.org/mirrors/node/
+
+执行source /etc/profile 或者 重新打开你的终端, 输入 nvm 
+(http://blog.csdn.net/pzlsun/article/details/41914473)
+node -v 
+0.10.26
+npm -v
+1.4.3
+
+2.
+安装jsbin
+ #淘宝镜像安装
+ npm install -g jsbin --registry=https://registry.npm.taobao.org
+ #配置文件
+ cp config.default.json config.local.json
+ #本地启动 jsbin
+3. 
+局域网搭建jsbin
+暂且将config.local.json 
+host 为局域网ip即可开箱即用
+"url": {
+    "host": "192.168.10.10:3000"
