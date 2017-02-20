@@ -1,0 +1,38 @@
+镜像
+http://gems.ruby-china.org/
+请尽可能用比较新的 RubyGems 版本，建议 2.6.x 以上。
+$ gem update --system # 这里请翻墙一下
+升级手安装
+Download from above（https://rubygems.org/rubygems/rubygems-2.6.10.zip）
+Unpack into a directory and cd there
+Install with: ruby setup.rb (you may need admin/root privilege)
+$ gem -v
+2.6.3
+$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+$ gem sources -l
+https://gems.ruby-china.org
+# 确保只有 gems.ruby-china.org
+
+新手问题 gem install SSL 错误
+关于 Windows 下证书无法验证问题 (certificate verify failed)
+
+注意注意注意注意注意注意注意注意注意注意 window下路径使用 \\双斜线切记切记
+
+打开命令行执行
+set SSL_CERT_FILE=C:\\RailsInstaller\\cacert.pem
+修改了全局变量只对当前已经打开的 console 内立即临时生效,关闭后失效。
+
+cacert.pem 下载地址
+http://curl.haxx.se/ca/cacert.pem
+
+
+永久设置设置用户环境变量
+ SSL_CERT_FILE
+ C:\\RailsInstaller\\cacert.pem
+ 
+ 解决问题来源：
+ https://ruby-china.org/topics/29323
+ 
+ https://github.com/ruby-china/rubygems-mirror/wiki
+ 
+ https://gist.github.com/fnichol/867550
