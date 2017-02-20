@@ -1,0 +1,13 @@
+https://ruby-china.org/wiki/install_ruby_guide
+ruby DevKit
+http://rubyinstaller.org/
+RubyGems 镜像- Ruby China
+http://gems.ruby-china.org/
+gem升级安装(参考gem.txt)
+https://rubygems.org/rubygems/rubygems-2.6.10.zip
+参考
+gem install compass
+gem install 
+bundler
+http://bundler.io/
+ gem install bundler
