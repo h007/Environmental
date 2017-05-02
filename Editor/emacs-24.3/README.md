@@ -8,6 +8,7 @@
     * [李杀网](http://xahlee.org/)
     * [emacs-china](https://emacs-china.org/)
     * [book.emacs-china](http://book.emacs-china.org/)
+    * [lujun9972 && emacs 丰富笔记](https://github.com/lujun9972/lujun9972.github.com/tree/source/Emacs%E4%B9%8B%E6%80%92)
     * [emacs新手入门资料汇集地](https://github.com/emacs-china/hello-emacs)
     * [Interview with Richard Stallman](http://hackerpublicradio.org/eps.php?id=1116)
   
