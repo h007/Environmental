@@ -1,0 +1,100 @@
+
+
+window下安装 SpaceVim
+
+从 Spacevim 到 回到之前vim 只需将
+C:\Users\用户名\vimfiles 
+vimfiles 重命名即可 切换到SpaceVim  重命名为vimfiles
+
+参考手册
+https://github.com/wsdjeg/vim2048/
+https://github.com/SpaceVim
+http://spacevim.org/README_zh_cn/
+
+https://github.com/Gabirel/Hack-SpaceVim/blob/master/zh_CN/installation/installation-for-windows.md
+https://github.com/Gabirel/Hack-SpaceVim/issues/24
+
+
+
+
+1. 必备软件安装环境配置(这里使用的是64位的，32位尝试有问题)
+git lua Python gvim（）
+
+1.2注意：
+lua python  gvim  3个必须是32或64为不可混用 
+
+1.3 lua 安装
+lua 需要编译从群里下载编译好的2个压缩文件
+lua-5.3.3_Win64_bin.zip
+lua-5.3.3_Win64_dllw4_lib.zip
+
+解押后
+创建 lua文件包含以下两个文件夹
+lua-5.3.3_Win64_bin
+lua-5.3.3_Win64_dllw4_lib
+
+2. 软件检测
+git --version
+正确结果：
+
+git version 2.12.2.windows.2
+lua53 -v
+正确结果：
+
+Lua 5.3.3 Copyright (C) 1994-2016 Lua.org, PUC-Rio
+python -V
+正确结果：
+
+Python 3.6.1
+
+
+
+3. gvim 执行首次更新
+
+首次打开更新了一会就报错（应该是更新的太多了导致的），
+尝试更新了一会更新完成包的数量未增加时
+在打开一个新窗口然后关闭之前窗口
+打开然后关闭循环进行的直到把所有的包安装完毕
+
+3.1 解决vimproc.dll错误
+![点我下载](https://github.com/Shougo/vimproc.vim/releases)，位置放在：C:\Users\<Your Name>\.cache\vimfiles\repos\github.com\Shougo\vimproc.vim\lib
+
+3.2 安装字体安装 
+
+安装字体，字体下载：![DejaVu Sans Mono for PowerLine.ttf](https://github.com/wsdjeg/DotFiles/blob/master/fonts/DejaVu%20Sans%20Mono%20for%20Powerline.ttf)，安装完字体后状态栏即可正常显示
+字体安装位置
+C:\Windows\Fonts
+
+
+
+
+
+
+安装2048.vim游戏  
+2048.vim
+this plugin is based of SpaceVim's API, you can load the game layer, and run the game by SPC g 2
+
+概述：
+:SPConfig
+Add config into your ~/.SpaceVim.d/init.vim below:
+在最后一个 call 所在行
+按 o 输入
+call SpaceVim#layers#load('games')
+
+1.	安装2048.vim游戏 需行执行 :SPConfig 命令  (是SpacVim 配制命令 要自动载入2048.vim 需用户配置载入games模块 重启后自动更新将games模块游戏下载下来) https://github.com/Gabirel/Hack-SpaceVim/issues/24
+2.	执行 :SPConfig 后打开~/.SpaceVim.d/init.vim
+3.	Add config into your ~/.SpaceVim.d/init.vim below:
+4.	call SpaceVim#layers#load('games')
+5.	在call 的相似行后添加
+
+
+关于 SPC g 2 问题
+配制好用户配置载入games模块，重新打开2048.vim 自动安装了 在关闭后在打开执行 :SPC g 2 无反应
+正确方式
+不是让你执行命令  :SPC g 2
+
+你先按一次空格
+
+再按g
+再按2
+
