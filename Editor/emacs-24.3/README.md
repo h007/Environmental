@@ -66,3 +66,32 @@ pong
 Ctrl-x
 Ctrl-c
 ```
+
+##  [emacs 中文输入法](https://github.com/tumashu/chinese-pyim)
+
+```
+Alt + X list-packages
+ 回车
+ 搜索包 Ctrl+S 
+ chinese-pyim
+ 回车
+ 未找到匹配结果
+ 继续 Ctrl+ S  去找下一个
+ 
+在 emacs 配置文件中（比如: ~/.emacs）添加如下代码：
+
+(require 'chinese-pyim)
+(require 'chinese-pyim-basedict) 
+(chinese-pyim-basedict-enable) 
+
+;;激活 Chinese-pyim
+
+(setq default-input-method "chinese-pyim")
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+
+深入配制参考原文
+如添加词库
+https://github.com/tumashu/chinese-pyim#添加词库文件
+
+```
+
