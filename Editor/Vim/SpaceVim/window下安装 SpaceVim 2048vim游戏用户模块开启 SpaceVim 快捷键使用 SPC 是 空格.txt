@@ -1,4 +1,4 @@
-
+﻿
 
 window下安装 SpaceVim
 
@@ -67,7 +67,11 @@ C:\Windows\Fonts
 
 
 
-
+3.3 python不支持
+echo has('python')返回值均为0
+https://github.com/Gabirel/Hack-SpaceVim/blob/master/zh_CN/FAQ.md#python%E4%B8%8D%E6%94%AF%E6%8C%81
+C:\Users\<Your Name>\.SpaceVim.d\init.vim
+set pythonthreedll=python36.dll
 
 
 安装2048.vim游戏  
